@@ -34,6 +34,14 @@ impl Simulation {
         Simulation { bodies: Vec::new() }
     }
 
+    pub fn bodies_ptr(&self) -> *const Body {
+        self.bodies.as_ptr()
+    }
+
+    pub fn num_bodies(&self) -> usize {
+        self.bodies.len()
+    }
+
     pub fn add_body(&mut self, body: Body) {
         self.bodies.push(body);
     }
