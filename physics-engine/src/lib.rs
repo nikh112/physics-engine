@@ -81,13 +81,13 @@ impl Simulation {
                 self.bodies[i].ay += fy / self.bodies[i].mass; 
 
                 // editing accelerations based on OPPOSITE force applied (B)
-                self.bodies[j].ax -= fx / self.bodies[i].mass;
-                self.bodies[j].ay -= fy / self.bodies[i].mass; 
+                self.bodies[j].ax -= fx / self.bodies[j].mass;
+                self.bodies[j].ay -= fy / self.bodies[j].mass; 
             }
         }
 
         for i in 0..n {
-            let b = &mut self.bodies[n];
+            let b = &mut self.bodies[i];
 
             b.vx += 0.5 * (old_ax[i] + b.ax) * dt;
             b.vy += 0.5 * (old_ay[i] + b.ay) * dt;
